@@ -4,7 +4,6 @@
 *****
 **/
 var chalk=require("chalk");
-
 var express = require("express");
 var exphbs = require("express-handlebars");
 var body_parser = require("body-parser");
@@ -20,7 +19,7 @@ var config = {
 }
 
 //mongoose connection
-/**
+
 var db = mongoose.connect(config.db_url, function(err) {
 	if (err) {
 		console.error(chalk.red('Could not connect to MongoDB!'));
@@ -60,15 +59,7 @@ app.get("*",function(req,res,next){
 	res.redirect("/");
 	console.log("redirected to index page");
 });
-**/
-app.get("*",function(req,res){
-	res.sendFile(path.resolve(__dirname+"./../index.html"));
-})
-
 
 app.listen(config.port, function() {
 	console.log(chalk.grey("server is listening on port :: 	", config.port));
 });
-/**
-var cl=console.log;
-cl(chalk.white("hello there mate how are you???"));**/
